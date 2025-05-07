@@ -13,22 +13,22 @@
     <description>Input/output parameters.</description>
     <image>
       <name>sample_slide_path</name>
-      <label>Input Slide</label>
+      <label>Slide đầu vào</label>
       <channel>input</channel>
       <index>0</index>
-      <description>Path to input slide image to be deconvolved</description>
+      <description>Đường dẫn đến hình ảnh slide đầu vào cần được giải xoắn</description>
     </image>
     <double-vector>
       <name>macenko_I_0</name>
-      <label>Background Intensity</label>
+      <label>Cường độ nền</label>
       <index>1</index>
-      <description>Background intensity in each channel</description>
+      <description>Cường độ nền trong mỗi kênh</description>
     </double-vector>
     <float>
       <name>sample_sample_fraction</name>
-      <label>Sample Fraction</label>
+      <label>Mẫu phân số</label>
       <longflag>sampleFraction</longflag>
-      <description>Fraction of pixels to sample.  Specify either this or --sampleApproximateTotal</description>
+      <description>Phân số pixel để lấy mẫu. Chỉ định cái này hoặc --sampleApproximateTotal</description>
       <constraints>
 	<maximum>1</maximum>
       </constraints>
@@ -36,24 +36,23 @@
     </float>
     <float>
       <name>sample_magnification</name>
-      <label>Magnification</label>
+      <label>Độ phóng đại</label>
       <longflag>magnification</longflag>
-      <description>Desired magnification for sampling.  The default value indicates native scan magnification.</description>
+      <description>Độ phóng đại mong muốn để lấy mẫu. Giá trị mặc định biểu thị độ phóng đại quét gốc.</description>
       <default>-1</default>
     </float>
     <float>
       <name>sample_tissue_seg_mag</name>
-      <label>Segmentation Magnification</label>
+      <label>Phân đoạn Độ phóng đại</label>
       <longflag>segmentationMag</longflag>
-      <description>Low resolution magnification at which foreground and background will be segmented.</description>
+      <description>Độ phóng đại có độ phân giải thấp để phân đoạn tiền cảnh và hậu cảnh.</description>
       <default>1.25</default>
     </float>
     <float>
       <name>sample_min_coverage</name>
-      <label>Minimum Coverage</label>
+      <label>Phạm vi bảo hiểm tối thiểu</label>
       <longflag>minCoverage</longflag>
-      <description>Minimum background coverage required for a tile to
-      be sampled from.</description>
+      <description>Phạm vi nền tối thiểu cần thiết để lấy mẫu một ô.</description>
       <constraints>
 	<minimum>0</minimum>
 	<maximum>1</maximum>
@@ -62,23 +61,23 @@
     </float>
     <integer>
       <name>sample_sample_approximate_total</name>
-      <label>Approximate sample total</label>
+      <label>Tổng số mẫu ước tính</label>
       <longflag>sampleApproximateTotal</longflag>
-      <description>Use instead of sample_fraction to specify roughly how many pixels to sample.  The fewer tiles are excluded, the more accurate this will be.</description>
+      <description>Sử dụng thay cho sample_fraction để chỉ định sơ bộ số lượng pixel cần lấy mẫu. Càng ít ô bị loại trừ thì độ chính xác sẽ càng cao.</description>
       <default>-1</default>
     </integer>
     <double>
       <name>macenko_minimum_magnitude</name>
-      <label>Minimum magnitude</label>
+      <label>Kích thước tối thiểu</label>
       <longflag>minimumMagnitude</longflag>
-      <description>The magnitude below which vectors will be excluded from the computation of the angle distribution</description>
+      <description>Độ lớn bên dưới mà các vectơ sẽ bị loại trừ khỏi phép tính phân phối góc</description>
       <default>16</default>
     </double>
     <double>
       <name>macenko_min_angle_percentile</name>
-      <label>Minimum angle percentile</label>
+      <label>Góc phần trăm tối thiểu</label>
       <longflag>minAnglePercentile</longflag>
-      <description>The smaller percentile of one of the vectors to pick from the angle distribution</description>
+      <description>Phần trăm nhỏ hơn của một trong các vectơ để chọn từ phân phối góc</description>
       <constraints>
 	<minimum>0</minimum>
 	<maximum>1</maximum>
@@ -87,9 +86,9 @@
     </double>
     <double>
       <name>macenko_max_angle_percentile</name>
-      <label>Maximum angle percentile</label>
+      <label>Phần trăm góc tối đa</label>
       <longflag>maxAnglePercentile</longflag>
-      <description>The larger percentile of one of the vectors to pick from the angle distribution</description>
+      <description>Phần trăm lớn hơn của một trong các vectơ để chọn từ phân phối góc</description>
       <constraints>
 	<minimum>0</minimum>
 	<maximum>1</maximum>
@@ -98,27 +97,27 @@
     </double>
   <file fileExtensions=".anot" reference="sample_slide_path">
       <name>outputAnnotationFile</name>
-      <label>Output SDA colors of each stain</label>
-      <description>Output stain annotation file (*.anot)</description>
+      <label>Đầu ra màu SDA của từng vết bẩn</label>
+      <description>Đầu ra tập tin chú thích vết bẩn (*.anot)</description>
       <channel>output</channel>
       <index>2</index>
     </file>
   </parameters>
   <parameters advanced="true">
     <label>Dask</label>
-    <description>Dask parameters</description>
+    <description>Tham số Dask</description>
     <string>
       <name>dask_scheduler</name>
-      <label>Scheduler Address</label>
-      <description>Address of a dask scheduler in the format '127.0.0.1:8786'.  Not passing this parameter sets up a dask cluster on the local machine.  'multiprocessing' uses Python multiprocessing.  'multithreading' uses Python multiprocessing in threaded mode.</description>
+      <label>Địa chỉ lập lịch</label>
+      <description>Địa chỉ của trình lập lịch dask theo định dạng '127.0.0.1:8786'. Không truyền tham số này sẽ thiết lập cụm dask trên máy cục bộ. 'multiprocessing' sử dụng đa xử lý Python. 'multithreading' sử dụng đa xử lý Python ở chế độ luồng.</description>
       <longflag>scheduler</longflag>
       <default></default>
     </string>
     <integer>
       <name>sample_tile_grouping</name>
-      <label>Tile grouping</label>
+      <label>Nhóm gạch</label>
       <longflag>tileGrouping</longflag>
-      <description>Number of tiles to process as part of a single task</description>
+      <description>Số lượng ô để xử lý như một phần của một tác vụ duy nhất</description>
       <default>256</default>
     </integer>
   </parameters>
