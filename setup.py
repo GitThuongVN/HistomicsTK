@@ -27,7 +27,7 @@ setup(
     long_description_content_type='text/x-rst',
     author='Kitware, Inc.',
     author_email='developers@digitalslidearchive.net',
-    url='https://github.com/DigitalSlideArchive/HistomicsTK',
+    url='https://github.com/GitThuongVN/HistomicsTK',
     packages=find_packages(exclude=['tests', '*_test*']),
     package_dir={
         'histomicstk': 'histomicstk',
