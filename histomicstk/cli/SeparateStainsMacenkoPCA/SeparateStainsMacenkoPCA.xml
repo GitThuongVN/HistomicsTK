@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <executable>
   <category>HistomicsTK</category>
-  <title>Separate Stains (PCA-based Macenko method)</title>
-  <description>Sample the foreground of a slide to compute the stain vectors using the Macenko method.</description>
+  <title>Tách vết bẩn (phương pháp Macenko dựa trên PCA)</title>
+  <description>Lấy mẫu tiền cảnh của một slide để tính toán các vectơ nhuộm màu bằng phương pháp Macenko.</description>
   <version>0.1.0</version>
   <documentation-url>https://digitalslidearchive.github.io/HistomicsTK/</documentation-url>
   <license>Apache 2.0</license>
